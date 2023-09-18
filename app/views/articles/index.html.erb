@@ -1,6 +1,19 @@
 <h1>Articles#index</h1>
 <p>Find me in app/views/articles/index.html.erb</p>
 
-<h1>Hello World</h1>
+<%# <a href="/articles/new">Create</a> %>
+
+<%= link_to "Create", new_article_path %>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.title %>
+      <br>
+      <%= link_to "See More", article %>
+    </li>
+  <% end %>
+</ul>
+
 
 
