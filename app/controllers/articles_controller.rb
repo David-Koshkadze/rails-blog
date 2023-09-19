@@ -1,10 +1,13 @@
 class ArticlesController < ApplicationController
+
+  http_basic_authenticate_with name: "davit", password: 'secret_123', except: [:index, :show]
+
   def index
     @articles = Article.all.order(created_at: :desc)
   end
 
   def show
-    @article = Article.find(params[:id])  
+    @article = Article.find(params[:id]) 
   end
 
   # new to get the form page and pass @article instance variable which contains article info
