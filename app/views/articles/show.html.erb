@@ -10,35 +10,11 @@
     } %></li>
   </ul>
 
-  <%= @article.comments.each do |comment| %>
-    <div style="padding: 1rem; border: 1px solid #333; margin-bottom: 1rem; width: ">
-      <div>
-        <strong>Comment Author: </strong>
-        <%= comment.comment_author%>
-      </div>
 
-      <div>
-        <strong>Comment: </strong>
-        <%= comment.body%>
-      </div>
-    </div>
-  <% end %>
-
+  <%= render @article.comments %>
 
   <h2>Add comment:</h2>
 
-  <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-    <p>
-      <%= form.label :comment_author %><br>
-      <%= form.text_field :comment_author %>
-    </p>
-    <p>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
+  <%= render 'comments/form' %>
 
 </div>
