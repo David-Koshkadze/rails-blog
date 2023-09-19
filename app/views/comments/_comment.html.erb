@@ -1,4 +1,4 @@
-<%= unless comment.archived? %>
+<% unless comment.archived? %>
   <div style="padding: 1rem; border: 1px solid #333; margin-bottom: 1rem; width: ">
     <div>
       <strong>Comment Author: </strong>
@@ -8,6 +8,13 @@
     <div>
       <strong>Comment: </strong>
       <%= comment.body%>
+    </div>
+
+    <div>
+      <%= link_to "Delete", [comment.article, comment], data: { 
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure to delete this comment?"
+      } %>
     </div>
   </div>
 <% end %>
