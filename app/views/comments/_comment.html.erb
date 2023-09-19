@@ -1,11 +1,13 @@
-<div style="padding: 1rem; border: 1px solid #333; margin-bottom: 1rem; width: ">
-  <div>
-    <strong>Comment Author: </strong>
-    <%= comment.comment_author%>
-  </div>
+<%= unless comment.archived? %>
+  <div style="padding: 1rem; border: 1px solid #333; margin-bottom: 1rem; width: ">
+    <div>
+      <strong>Comment Author: </strong>
+      <%= comment.comment_author%>
+    </div>
 
-  <div>
-    <strong>Comment: </strong>
-    <%= comment.body%>
+    <div>
+      <strong>Comment: </strong>
+      <%= comment.body%>
+    </div>
   </div>
-</div>
+<% end %>
